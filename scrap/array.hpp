@@ -1,37 +1,46 @@
-template <typename T, unsigned long long size>
-class array
+#include "../base/define.hpp"
+
+namespace scrap 
 {
-private:
-    T arr[size];
-public:
-    array() = default;
-    ~array() = default;
-    array(T a[size])
+    template <typename T, size_t size>
+    class array_t
     {
-        for (int i = 0; i < size; i++)
+    private:
+        T arr[size];
+    public:
+        array_t() = default;
+        ~array_t() = default;
+        array_t(T a[size])
         {
-            this->arr[i] = a[i];
+            for (int i = 0; i < size; i++)
+            {
+                this->arr[i] = a[i];
+            }
         }
-    }
 
-    T &operator[](unsigned long long s)
-    {
-        return (this->arr[s]);
-    }
+        T &operator[](size_t s)
+        {
+            return (this->arr[s]);
+        }
 
-    T *begin()
-    {
-        return &(this->arr[0]);
-    }
+        T *begin()
+        {
+            return &(this->arr[0]);
+        }
 
-    T *end()
-    {
-        return &(this->arr[size]);
-    }
+        T *end()
+        {
+            return &(this->arr[size]);
+        }
 
+        T* get_c_array()
+        {
+            return this->arr;
+        }
 
-    unsigned long long get_size()
-    {
-        return size;
-    }
-};
+        size_t get_size()
+        {
+            return size;
+        }
+    };
+}
