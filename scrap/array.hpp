@@ -3,14 +3,14 @@
 namespace scrap 
 {
     template <typename T, size_t size>
-    class array_t
+    class array
     {
     private:
         T arr[size];
     public:
-        array_t() = default;
-        ~array_t() = default;
-        array_t(T a[size])
+        array() = default;
+        ~array() = default;
+        array(T a[size])
         {
             for (int i = 0; i < size; i++)
             {

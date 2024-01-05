@@ -4,28 +4,35 @@
 namespace scrap 
 {
     template <typename T>
-    class list_t
+    class list
     {
     private:
         size_t size;
-        size_t max_size;
         T* arr;
     public:
-        list_t()
+        list()
         {
             this->arr = (T*) malloc(0);
             this->size = 0;
         }
 
+        void set(T elem)
+        {
+            for (size_t i = 0; i < size; i++)
+            {
+                this->arr[i] = elem;
+            }
+        }
+
         void append(T elem)
         {
-            this->arr = (T*) realloc(this->arr, ++this->size);
+            this->arr = (T*) realloc(this->arr, (++this->size) * sizeof(T));
             this->arr[this->size - 1] = elem;
         }   
 
         void pop()
         {
-            this->arr = (T*) realloc(this->arr, --this->size);
+            this->arr = (T*) realloc(this->arr, (--this->size) * sizeof(T));
         }
 
         T *operator[](const size_t pos)
