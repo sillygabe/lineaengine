@@ -1,7 +1,8 @@
-#include <cstdlib>
+#include <stdlib.h>
 #include "../base/define.hpp"
+#pragma once
 
-namespace scrap 
+namespace data
 {
     template <typename T>
     class list

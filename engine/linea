@@ -1,3 +1,30 @@
-#include "_include.hpp"
+#include "include.hpp"
 #include "time.hpp"
+
+#include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
+#include <SDL2_ttf/SDL_ttf.h>
+
+//Init all needed processes
+void linea_init()
+{
+    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) throw no_init();
+    if(!IMG_Init
+        (
+        IMG_INIT_AVIF | 
+        IMG_INIT_JPG | 
+        IMG_INIT_JXL |
+        IMG_INIT_PNG |
+        IMG_INIT_TIF |
+        IMG_INIT_WEBP)
+    )   throw no_init();
+    if (TTF_Init() == -1) throw no_init();
+
+    time::__time_start();
+}
+
+void linea_update()
+{
+    time::__time_update();
+}
 

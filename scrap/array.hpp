@@ -1,6 +1,7 @@
 #include "../base/define.hpp"
+#pragma once
 
-namespace scrap 
+namespace data
 {
     template <typename T, size_t size>
     class array

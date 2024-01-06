@@ -19,4 +19,7 @@ namespace sys
         screen_height = dm.h;
         refresh_rate = dm.refresh_rate;
     }
+
+    //TODO:
+    //Add some macro magic to define user platform
 } 

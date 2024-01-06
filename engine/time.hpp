@@ -1,5 +1,6 @@
 #include <SDL2/SDL_timer.h>
-#include "_include.hpp"
+#include "include.hpp"
+#pragma once
 
 namespace time
 {
