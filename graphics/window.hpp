@@ -15,7 +15,7 @@ namespace video
         window
         (
             const char * name,
-            data::pair<int32_t, int32_t> size,
+            data::texture_size size,
             data::pair<uint32_t, uint32_t> window_pos = data::pair
             (SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)
         )
@@ -57,7 +57,7 @@ namespace video
 
         texture create_texture
         (
-            data::pair<int32_t, int32_t> size
+            data::texture_size size
         )
         {
             texture ret = SDL_CreateTexture

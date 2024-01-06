@@ -19,4 +19,6 @@ namespace data
 
         pair() = default;
     };
+
+    using texture_size = pair<int, int>;
 };

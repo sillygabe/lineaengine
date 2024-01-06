@@ -12,7 +12,7 @@ namespace video
     public:
         surface(SDL_Surface *s) : surf(s) {}
 
-        surface(data::pair<int32_t, int32_t> size)
+        surface(data::texture_size size)
         {
             this->surf = SDL_CreateRGBSurface
             (
@@ -27,7 +27,7 @@ namespace video
             );
         }
         
-        data::pair<int32_t, int32_t> 
+        data::texture_size 
         get_size()
         {
             return data::pair(surf->w, surf->h);
