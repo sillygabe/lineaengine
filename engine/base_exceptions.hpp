@@ -4,6 +4,5 @@
 class no_init : public io::runtime_error
 {
 public:
-    no_init() : runtime_error("Couldn't initialize SDL")
-    {}
+    no_init() : runtime_error("Couldn't initialize SDL") {}
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../base/define.hpp"
+#include "../base/vectors.hpp"
 
 #include "../scrap/array.hpp"
 #include "../scrap/list.hpp"
