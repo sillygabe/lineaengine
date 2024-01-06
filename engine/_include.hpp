@@ -1,6 +1,8 @@
-#include "base/define.hpp"
-#include "base/math.hpp"
-#include "base/define.hpp"
+#pragma once
 
-#include "scrap/array.hpp"
-#include "scrap/list.hpp"
+#include "../base/define.hpp"
+#include "../base/math.hpp"
+#include "../base/define.hpp"
+
+#include "../scrap/array.hpp"
+#include "../scrap/list.hpp"
