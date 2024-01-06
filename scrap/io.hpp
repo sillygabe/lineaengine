@@ -53,7 +53,7 @@ namespace io
         }
         void operator()(data::string str)
         {
-            fprintf(file, "%s", str.get_cstring());
+            for (auto c : str) this->operator()(c);
         }
         void operator()(double to_print)
         {
