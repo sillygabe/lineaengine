@@ -21,6 +21,16 @@ arr.add(10);
 
 List - a dynamic array.
 
+# String
+
+```c++
+string a = "foobar";
+```
+
+String - dynamic string class. Can be used with IO.
+You can get cstring using string.get_cstring()
+They support concatenation.
+
 # Exception
 
 Basically an exception.

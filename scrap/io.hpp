@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "string.hpp"
 #pragma once
 
 //TODO: Fix this function
@@ -50,6 +51,10 @@ namespace io
         {
             fprintf(file, "%s", to_print);
         }
+        void operator()(data::string str)
+        {
+            fprintf(file, "%s", str.get_cstring());
+        }
         void operator()(double to_print)
         {
             fprintf(file, "%lf", to_print);
@@ -98,6 +103,10 @@ namespace io
             fscanf(this->f, "%lf", &num);
         }
         void operator()(char *&str)
+        {
+            str = __readinput(this->f);
+        }
+        void operator()(data::string &str)
         {
             str = __readinput(this->f);
         }

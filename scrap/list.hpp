@@ -36,9 +36,9 @@ namespace data
             this->arr = (T*) realloc(this->arr, (--this->size) * sizeof(T));
         }
 
-        T *operator[](const size_t pos)
+        T &operator[](const size_t pos)
         {
-            return &(this->arr[pos]);
+            return this->arr[pos];
         }
 
         T *begin()
@@ -60,5 +60,7 @@ namespace data
         {
             return this->size;
         }
+
+        friend class string;
     };
 }
