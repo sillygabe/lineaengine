@@ -1,4 +1,5 @@
 #include "io.hpp"
+#pragma once
 
 namespace io
 {

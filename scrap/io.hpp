@@ -4,33 +4,13 @@
 #include "string.hpp"
 #pragma once
 
-//TODO: Fix this function
-//Like it is so bad :(
-char * __readinput(FILE * _readfrom)
-{
-    #define CHUNK 200
-    char* input = NULL;
-    char tempbuf[CHUNK];
-    size_t inputlen = 0, templen = 0;
-    
-    do 
-    {
-        fgets(tempbuf, CHUNK, _readfrom);
-        templen = strlen(tempbuf);
-        input = (char *) realloc(input, inputlen+templen+1);
-        strcpy(input+inputlen, tempbuf);
-        inputlen += templen;
-    } 
-    while (templen==CHUNK-1 && tempbuf[CHUNK-2]!='\n');
-    return input;
-}
-
 namespace io
 {   
     class outstream
     {
     protected:
         FILE * file;
+
     public:
         outstream(FILE * f) {this->file = f;}
         outstream(const char * filename)
@@ -86,6 +66,27 @@ namespace io
     {
     private:
         FILE * f;
+
+        const char * readstr()
+        {
+            size_t size = 0; char * str = NULL;
+            char temp; bool running = true;
+
+            while ((temp = getc(this->f)) && running)
+            {
+                switch (temp)
+                {
+                case ' ': running = false; break;
+                case '\n': running = false; break;
+                case '\t': running = false; break;
+                default:
+                    str = (char *) realloc(str, ++size);
+                    str[size - 1] = temp;
+                    break;
+                }
+            }
+            return (const char *) (str);
+        }
     public:
         instream(FILE * file) : f(file) {}
         instream(const char * path)
@@ -104,11 +105,11 @@ namespace io
         }
         void operator()(char *&str)
         {
-            str = __readinput(this->f);
+            str = (char *) this->readstr();
         }
         void operator()(data::string &str)
         {
-            str = __readinput(this->f);
+            str = this->readstr();
         }
         void operator()(char &symb)
         {
