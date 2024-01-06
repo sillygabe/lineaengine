@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include "../scrap/pair.hpp"
+#pragma once
 
 namespace video
 {
@@ -38,6 +39,7 @@ namespace video
         }
 
         friend void load_surface(surface&, const char *);
+        friend class window;
     };
 
     surface load_surface(const char * path)

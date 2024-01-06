@@ -9,6 +9,8 @@
 #include "../scrap/pair.hpp"
 
 #include "../graphics/surface.hpp"
+#include "../graphics/texture.hpp"
+#include "../graphics/window.hpp"
 
 #include "time.hpp"
 #include "base_exceptions.hpp"

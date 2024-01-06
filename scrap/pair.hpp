@@ -16,5 +16,7 @@ namespace data
             this->first = a;
             this->second = b;
         }
+
+        pair() = default;
     };
 };
