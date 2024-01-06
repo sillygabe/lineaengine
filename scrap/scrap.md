@@ -20,3 +20,25 @@ arr.add(10);
 ```
 
 List - a dynamic array.
+
+# Exception
+
+Basically an exception.
+You can use it with throw/cath.
+
+# IO
+
+```c++
+outstream a = "foo"; //Opens the file "foo"
+a("Hello, ", 10, "\n"); //Prints "Hello, 10" and newline
+instream b = "bar"; //Opens the file "bar" for input
+double foo; char bar;
+b(foo, bar); //Inputs these variables from file "bar"
+```
+
+Input and output, you can use it with file you want.
+Also `print`, `input`, `printerr` are predefined for your use.
+
+# Pair
+
+A pair structure just like in `std`.
