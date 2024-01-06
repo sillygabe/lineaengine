@@ -24,4 +24,9 @@ namespace time
 
         curr_ticks = __buff;
     }
+
+    flt64_t get_fps()
+    {
+        return (flt64_t) (1 / delta);
+    }
 }
