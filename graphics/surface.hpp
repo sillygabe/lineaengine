@@ -27,8 +27,7 @@ namespace video
             );
         }
         
-        data::texture_size 
-        get_size()
+        data::texture_size get_size()
         {
             return data::pair(surf->w, surf->h);
         }

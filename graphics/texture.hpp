@@ -14,8 +14,7 @@ namespace video
             this->tex = other;
         }
 
-        data::texture_size
-        get_size()
+        data::texture_size get_size()
         {
             data::texture_size ret;
             SDL_QueryTexture(tex, NULL, NULL, &ret.first, &ret.second);
