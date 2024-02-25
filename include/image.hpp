@@ -12,7 +12,7 @@ namespace linea::__private
 
 namespace linea::graphics
 {
-	using size_2d_t = std::pair<uint32_t, uint32_t>;
+	using size_2d_t = std::pair<int32_t, int32_t>;
 		
 	class image_t
 	{
@@ -22,8 +22,8 @@ namespace linea::graphics
 		image_t(SDL_Texture *tex)
 			: texture(std::move(tex)) {}
 
-		uint32_t get_width();
-		uint32_t get_height();
+		int32_t get_width();
+		int32_t get_height();
 		size_2d_t get_size();
 
 		rect_t get_rect(void);

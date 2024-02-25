@@ -6,14 +6,14 @@ SDL_Texture *image_t::get_ptr()
     return this->texture.get();
 }
 
-uint32_t image_t::get_width()
+int32_t image_t::get_width()
 {
     int32_t ret;
 	SDL_QueryTexture(this->get_ptr(), NULL, NULL, &ret, NULL);
     return abs(ret);
 }
 
-uint32_t image_t::get_height()
+int32_t image_t::get_height()
 {
     int32_t ret;
 	SDL_QueryTexture(this->get_ptr(), NULL, NULL, NULL, &ret);
