@@ -51,3 +51,9 @@ rect_t window_t::get_rect()
     SDL_GetWindowSize(win.get(), &x, &y);
     return {x, y, 0, 0};
 }
+
+void window_t::draw_rect(color_t color, rect_t rect)
+{
+    SDL_SetRenderDrawColor(rend.get(), color.r, color.g, color.b, color.a);
+    SDL_RenderDrawRect(rend.get(), rect.get_ptr());
+}

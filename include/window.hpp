@@ -24,8 +24,11 @@ namespace linea::graphics
         void fill(color_t color);
         void blit(image_t &image, size_2d_t pos);
         void blit(image_t &image, rect_t rect);
+
         image_t load(std::string path);
         rect_t get_rect();
+
+        void draw_rect(color_t color, rect_t rect);
     };
 }
 

@@ -5,11 +5,13 @@ CXXFLAGS = -F/Library/Frameworks
 CXXLIBS = -framework SDL2 -framework SDL2_image
 
 TARGET = main.cpp #EXAMPLE !!!
-TARGETS = src/*.cpp
-
-%.o: %.cpp
-	$(CXX) $> $(CXXFLAGS) $(CXXLIBS) -o $@.o -c 
+TARGETS = $(wildcard src/*.cpp)
+OBJS = 
 
 linea.o: $(TARGETS)
-	$(eval OBJS = src/*.o)
-	$(CXX) $(CXXFLAGS) $(CXXLIBS) $(OBJS) -o linea.o -c 
+	$(CXX) $(TARGETS) $(CXXFLAGS) $(CXXLIBS) -c 
+	$(eval OBJS = $(wildcard *.o))
+	ld -r $(OBJS) -o linea.o 
+
+clean:
+	rm *.o 

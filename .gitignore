@@ -2,3 +2,4 @@ test.cpp
 main
 .DS_Store
 main.cpp
+*.o
