@@ -31,6 +31,11 @@ void window_t::blit(image_t &image, size_2d_t pos)
     SDL_RenderCopy(rend.get(), image.get_ptr(), NULL, r.get_ptr());
 }
 
+void window_t::blit(image_t &image, rect_t r)
+{
+    SDL_RenderCopy(rend.get(), image.get_ptr(), NULL, r.get_ptr());
+}
+
 image_t window_t::load(std::string path)
 {
     image_t ret = SDL_CreateTextureFromSurface(
