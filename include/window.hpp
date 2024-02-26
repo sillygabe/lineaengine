@@ -25,6 +25,7 @@ namespace linea::graphics
         void blit(image_t &image, size_2d_t pos);
         void blit(image_t &image, rect_t rect);
         image_t load(std::string path);
+        rect_t get_rect();
     };
 }
 

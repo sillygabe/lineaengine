@@ -8,7 +8,7 @@ window_t::window_t(std::string name, size_2d_t size) : win(
             SDL_WINDOWPOS_CENTERED,
             SDL_WINDOWPOS_CENTERED,
             size.first,
-            size.second, 0
+            size.second, SDL_WINDOW_RESIZABLE
     ))), rend(std::move(SDL_CreateRenderer(win.get(), -1, 0))) {}
 
 void window_t::update()
@@ -43,4 +43,11 @@ image_t window_t::load(std::string path)
         IMG_Load(path.c_str())
     );
     return ret;
+}
+
+rect_t window_t::get_rect()
+{
+    int32_t x, y;
+    SDL_GetWindowSize(win.get(), &x, &y);
+    return {x, y, 0, 0};
 }

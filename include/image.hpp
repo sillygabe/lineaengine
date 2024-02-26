@@ -4,6 +4,7 @@
 #include "rect.hpp"
 #include "helper.hpp"
 #include <utility>
+#include <string>
 
 namespace linea::__private
 {
