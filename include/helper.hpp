@@ -6,7 +6,6 @@
 
 namespace linea::__private
 {
-
 	template<typename T, void(*destroy)(T*), typename Ptr = std::unique_ptr<T, decltype(destroy)>>
 	struct handle_t : public Ptr
 	{
@@ -25,7 +24,8 @@ namespace linea
 	struct func_t
 	{
 		Ret (*func) (Args...);
-		func_t(Ret *(f) (Args...)) : func(f) {}
+		func_t(Ret (*f) (Args...)) : func(f) {}
+		func_t() : func(nullptr) {}
 		Ret operator()(Args... args)
 		{this->func(args...);}
 	};
