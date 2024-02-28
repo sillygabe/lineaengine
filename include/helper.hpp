@@ -16,6 +16,8 @@ namespace linea::__private
 
 namespace linea
 {
+	using sdl_ptr = SDL_Surface *;
+
 	struct color_t
 	{
 		uint8_t r = 0, g = 0, b = 0, a = 255;

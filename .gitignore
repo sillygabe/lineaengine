@@ -4,3 +4,4 @@ main
 main.cpp
 *.o
 .vscode
+font.ttf

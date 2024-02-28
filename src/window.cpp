@@ -8,7 +8,7 @@ window_t::window_t(std::string name, size_2d_t size) : win(
             SDL_WINDOWPOS_CENTERED,
             SDL_WINDOWPOS_CENTERED,
             size.first,
-            size.second, SDL_WINDOW_RESIZABLE
+            size.second, 0
     ))), rend(std::move(SDL_CreateRenderer(win.get(), -1, 0))) {}
 
 void window_t::update()
@@ -36,6 +36,19 @@ void window_t::blit(image_t &image, rect_t r)
     SDL_RenderCopy(rend.get(), image.get_ptr(), NULL, r.get_ptr());
 }
 
+void window_t::blit(sdl_ptr pt, rect_t rect)
+{
+    image_t img = this->create_image(pt);
+    this->blit(img, rect);
+}
+
+void window_t::blit(sdl_ptr pt, size_2d_t rect)
+{
+    image_t img = this->create_image(pt);
+    this->blit(img, rect);
+}
+
+
 image_t window_t::load(std::string path)
 {
     image_t ret = SDL_CreateTextureFromSurface(
@@ -43,6 +56,11 @@ image_t window_t::load(std::string path)
         IMG_Load(path.c_str())
     );
     return ret;
+}
+
+image_t window_t::create_image(sdl_ptr pt)
+{
+    return SDL_CreateTextureFromSurface(this->rend.get(), pt);
 }
 
 rect_t window_t::get_rect()

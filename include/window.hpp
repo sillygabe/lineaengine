@@ -2,6 +2,7 @@
 #define __WINDOW_HPP__
 
 #include "image.hpp"
+#include "font.hpp"
 #include <SDL2_image/SDL_image.h>
 
 namespace linea::__private
@@ -24,8 +25,11 @@ namespace linea::graphics
         void fill(color_t color);
         void blit(image_t &image, size_2d_t pos);
         void blit(image_t &image, rect_t rect);
+        void blit(sdl_ptr, rect_t rect);
+        void blit(sdl_ptr, size_2d_t pos);
 
         image_t load(std::string path);
+        image_t create_image(sdl_ptr);
         rect_t get_rect();
 
         void draw_rect(color_t color, rect_t rect);
