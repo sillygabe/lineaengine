@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <stdexcept>
+#include <SDL2/SDL.h>
 
 namespace linea::__private
 {
@@ -28,6 +29,14 @@ namespace linea
 		func_t() : func(nullptr) {}
 		Ret operator()(Args... args)
 		{this->func(args...);}
+	};
+
+	struct context_t
+	{
+		context_t(uint32_t type)
+			: type(type), error(SDL_GetError()) {}
+		uint32_t type;
+		std::string error;
 	};
 }
 
