@@ -22,24 +22,6 @@ namespace linea
 	{
 		uint8_t r = 0, g = 0, b = 0, a = 255;
 	};
-
-	template <typename Ret, typename ...Args>
-	struct func_t
-	{
-		Ret (*func) (Args...);
-		func_t(Ret (*f) (Args...)) : func(f) {}
-		func_t() : func(nullptr) {}
-		Ret operator()(Args... args)
-		{this->func(args...);}
-	};
-
-	struct context_t
-	{
-		context_t(uint32_t type)
-			: type(type), error(SDL_GetError()) {}
-		uint32_t type;
-		std::string error;
-	};
 }
 
 #endif

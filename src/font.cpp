@@ -12,3 +12,8 @@ linea::sdl_ptr font_t::render(std::string text, color_t c)
         b
     );
 }
+
+void font_t::destroy()
+{
+    this->fnt.reset();
+}

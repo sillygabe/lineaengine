@@ -1,25 +1,29 @@
 #include "../include/events.hpp"
 
-void linea::events::add_listener(uint32_t t, func_t<void> f)
+void linea::events::attach_listener(uint32_t eve, listener_t lst)
 {
-    listeners.emplace(t, f);
+    listeners.insert({eve, lst});
+}   
+
+void linea::events::remove_listener(uint32_t eve)
+{
+    listeners.erase(eve);
 }
 
-void linea::events::throw_event(uint32_t ty)
+void linea::events::throw_event(uint32_t eve)
 {
-    linea::events::event_query.push_back(ty);
+    event_query.push_back(eve);
 }
 
-void linea::events::update(void)
+void linea::events::update_events()
 {
     SDL_Event event;
 
-    while (SDL_PollEvent(&event))
+    while (SDL_PollEvent(&event)) 
         event_query.push_back(event.type);
 
-    for (auto ty : event_query)
-        if (listeners.contains(ty)) 
-            listeners[ty].func();
+    for (context_t ctx : event_query)
+        listeners[ctx.type](ctx);
 
     event_query.clear();
 }

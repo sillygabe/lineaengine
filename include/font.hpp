@@ -16,6 +16,7 @@ namespace linea::graphics
     private:
         __private::__sdl_font fnt;
     public:
+        void destroy();
         font_t(std::string path, uint32_t size)
             : fnt(std::move(
                 TTF_OpenFont(path.c_str(), size)
