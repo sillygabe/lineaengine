@@ -2,6 +2,7 @@
 #define __FONT_HPP__
 
 #include <SDL2_ttf/SDL_ttf.h>
+#include <set>
 #include "helper.hpp"
 
 namespace linea::__private

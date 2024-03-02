@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <SDL2/SDL.h>
 
+
 namespace linea::__private
 {
 	template<typename T, void(*destroy)(T*), typename Ptr = std::unique_ptr<T, decltype(destroy)>>

@@ -2,7 +2,7 @@
 
 CXX = g++-13
 CXXFLAGS = -F/Library/Frameworks -std=c++20
-CXXLIBS = -framework SDL2 -framework SDL2_image -framework SDL2_ttf
+CXXLIBS = -framework SDL2 -framework SDL2_image -framework SDL2_ttf -framework SDL2_mixer
 
 TARGET = main.cpp #EXAMPLE !!!
 TARGETS = $(wildcard src/*.cpp)

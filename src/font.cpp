@@ -4,7 +4,7 @@ using namespace linea::graphics;
 linea::sdl_ptr font_t::render(std::string text, color_t c)
 {
     SDL_Color a = {c.r, c.g, c.b, c.a}, b = {0, 0, 0, 0};
-    return TTF_RenderText
+    return TTF_RenderText_Shaded
     (
         this->fnt.get(),
         text.c_str(),
