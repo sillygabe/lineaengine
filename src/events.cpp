@@ -27,3 +27,8 @@ void linea::events::update_events()
 
     event_query.clear();
 }
+
+bool linea::events::get_key_state(uint8_t key)
+{
+    return keyboard[SDL_GetScancodeFromKey(key)];
+}

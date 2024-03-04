@@ -19,6 +19,8 @@ namespace linea::events
     static void LISTENER_DEFAULT(context_t)
     {return;}
 
+    static const uint8_t *keyboard = SDL_GetKeyboardState(NULL);
+
     /// @brief Function container which gets executed on an assigned event
     struct listener_t
     {
@@ -35,6 +37,15 @@ namespace linea::events
     void remove_listener(uint32_t);
     void throw_event(uint32_t);
     void update_events();
+
+    const uint32_t 
+        LINEA_KEY_UP = SDLK_UP,
+        LINEA_KEY_DOWN = SDLK_DOWN,
+        LINEA_KEY_LEFT = SDLK_LEFT,
+        LINEA_KEY_RIGHT = SDLK_RIGHT;
+
+
+    bool get_key_state(uint8_t key);
 }   
 
 #endif
